@@ -28,3 +28,5 @@ runs:
         GH_TOKEN: ${{ inputs.token }}
       run: |
         echo "success"
+        echo "conclusion ${{ steps.may-skip.conclusion }}"
+        echo "outcome ${{ steps.may-skip.outcome }}"
