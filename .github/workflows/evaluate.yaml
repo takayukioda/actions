@@ -1,0 +1,19 @@
+name: Execute actions for evaluation
+
+on:
+  workflow_dispatch:
+    inputs:
+      number:
+        description: 'A number'
+        required:  false
+        default: 0
+        type: number
+
+jobs:
+  evaluate-skip-step:
+    runs-on: ubuntu-latest
+    steps:
+    - name: May skip check
+      uses: takayukioda/actions/skip-step@4cbf051e65d197a1e4036fa3fc61f9881fec6536
+      with:
+        number: ${{ inputs.number }}
