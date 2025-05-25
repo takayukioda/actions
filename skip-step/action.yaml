@@ -1,0 +1,30 @@
+name: "Skip step"
+description: "条件満たさなければ後続の処理は飛ばしつつ失敗にはしない"
+
+inputs:
+  number:
+    description: A number
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Get a number
+      id: get-number
+      shell: bash
+      run: |
+        echo "number=${{ inputs.number }}" >> $GITHUB_OUTPUT
+
+    - name: May skip to run
+      id: may-skip
+      if: ${{ steps.get-number.outputs.number != '0' }}
+      shell: bash
+      run: |
+        echo "${{ steps.get-number.outputs.number }}"
+
+    - name: Run on success
+      if: ${{ success() }}
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+      run: |
+        echo "success"
