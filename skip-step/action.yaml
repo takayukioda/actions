@@ -22,7 +22,7 @@ runs:
         echo "${{ steps.get-number.outputs.number }}"
 
     - name: Run on success
-      if: ${{ steps.may-skip.conclusion == "success" }}
+      if: ${{ steps.may-skip.conclusion == 'success' }}
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.token }}
