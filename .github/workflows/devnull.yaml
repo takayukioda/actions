@@ -1,0 +1,10 @@
+name: Do nothing
+on:
+  workflow_dispatch:
+  
+jobs:
+  devnull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Echo to /dev/null"
+        run: echo "" >/dev/null
