@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: May skip check
-      uses: takayukioda/actions/skip-step@4cbf051e65d197a1e4036fa3fc61f9881fec6536
+      uses: takayukioda/actions/skip-step@0376ed1940ce7afdb50be515d1d24f76f056e1e6
       with:
         number: ${{ inputs.number }}
