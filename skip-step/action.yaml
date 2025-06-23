@@ -5,6 +5,9 @@ inputs:
   number:
     description: A number
     required: true
+  token:
+    description: Token for authenticated operations
+    required: true
 runs:
   using: composite
   steps:
